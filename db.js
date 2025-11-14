@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // @ is not allowed → converted to %40
-const dbUrl = "mongodb+srv://navpreetsinghcse:Navkajalcse@techdb.xwk7lbd.mongodb.net/classroom?retryWrites=true&w=majority&appName=TechDB";
+const dbUrl = "mongodb+srv://navpreetsinghcse:Navkajalcse@techdb.xwk7lbd.mongodb.net/?retryWrites=true&w=majority&appName=TechDB"
 
 const connectToMongo = async () => {
   try {
