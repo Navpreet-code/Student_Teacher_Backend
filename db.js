@@ -1,16 +1,22 @@
-const mongoose = require('mongoose');
-require('dotenv').config()
-const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/classroom';
+const mongoose = require("mongoose");
 
-const connectToMongo = () => {
+// @ is not allowed → converted to %40
+const dbUrl = "mongodb+srv://navpreetsinghcse:Navkajalcse%40@techdb.xwk7lbd.mongodb.net/classroom?retryWrites=true&w=majority&appName=TechDB";
+
+const connectToMongo = async () => {
+  try {
     mongoose.set("strictQuery", false);
-    mongoose.connect(dbUrl)
-        .then(() => {
-            console.log("DATABASE CONNECTED")
-        })
-        .catch(err => {
-            console.log("OH NO ERROR!!!!")
-            console.log(err)
-        })
-}
+
+    await mongoose.connect(dbUrl, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    console.log("🔥 MongoDB Connected Successfully (Render)");
+  } catch (error) {
+    console.log("❌ MongoDB Connection Failed");
+    console.log(error);
+  }
+};
+
 module.exports = connectToMongo;
